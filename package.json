@@ -1,0 +1,18 @@
+{
+  "name": "qa-governance-hub",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "install:all": "npm install && npm install --prefix frontend",
+    "dev": "npm run dev --prefix frontend",
+    "build": "npm run build --prefix frontend",
+    "preview": "npm run preview --prefix frontend",
+    "backend:win": "cd backend && venv\\Scripts\\python -m uvicorn app.main:app --reload",
+    "backend:nix": "cd backend && venv/bin/python -m uvicorn app.main:app --reload",
+    "start:win": "concurrently \"npm run dev\" \"npm run backend:win\"",
+    "start:nix": "concurrently \"npm run dev\" \"npm run backend:nix\""
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
